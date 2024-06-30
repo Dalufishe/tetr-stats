@@ -11,8 +11,8 @@ const { clientId, guildId, token } = config;
   const foldersPath = path.join("commands");
   const commandsFolder = fs.readdirSync(foldersPath);
 
-  for (const commandFile of commandsFolder) {
-    const commandFilePath = path.join(foldersPath, commandFile);
+  for (const commandsName of commandsFolder) {
+    const commandFilePath = path.join(foldersPath, commandsName, "index.js");
     const command = await import("./" + commandFilePath);
     commands.push(command.command.toJSON());
   }

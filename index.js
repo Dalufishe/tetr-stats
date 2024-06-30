@@ -13,8 +13,8 @@ async function main() {
 
   client.commands = new Collection();
 
-  for (const commandFile of commandsFolder) {
-    const commandFilePath = path.join(commandsPath, commandFile);
+  for (const commandsName of commandsFolder) {
+    const commandFilePath = path.join(commandsPath, commandsName, "index.js");
     const command = await import("./" + commandFilePath);
 
     client.commands.set(command.command.name, {
