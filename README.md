@@ -1,1 +1,2 @@
-"# tetr-stats" 
+npm i
+npm run dev
