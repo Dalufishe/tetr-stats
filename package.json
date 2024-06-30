@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.15.3"
+    "cheerio": "^1.0.0-rc.12",
+    "discord.js": "^14.15.3",
+    "esm-file-dir": "^1.1.0",
+    "html-to-image": "^1.11.11",
+    "node-html-to-image": "^4.0.0"
   }
 }

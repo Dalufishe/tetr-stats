@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a1dba6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 50em;
+  height: 168px;
+  background-color: #243e25;
+  position: relative;
+  background-color: #243e25;
+  border-top: 3px solid #45794f;
+  border-left: 3px solid #3d6242;
+  border-bottom: 3px solid #162419;
+  border-right: 3px solid #1d3220;
+  box-shadow: 0 0 48px #0002;
+}
+
+.avatar {
+  position: absolute;
+  left: 1em;
+  top: -1em;
+  height: 4.5em;
+  box-shadow: 0 2px 4px #0008;
+}
+
+.titlebox {
+  padding-left: 7.2em;
+  padding-top: 0.4em;
+  margin: 0;
+}
+
+.titlebox > .title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.titlebox > .subtitle {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.game-played {
+}
+
+.statsbox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 16px 16px;
+}
+
+.statsbox > .stats-sub-box {
+  flex: 2;
+  background-color: #0003;
+  padding: 0.25em;
+  text-align: center;
+  border-radius: 4px;
+
+  h6 {
+    font-size: 16px;
+  }
+
+  .stats-sub-sub-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    img {
+      width: 35px;
+    }
+
+    p {
+      font-size: 28px;
+      font-weight: 700;
+    }
+  }
+}

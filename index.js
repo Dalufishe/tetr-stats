@@ -1,3 +1,4 @@
+import "esm-file-dir";
 import { Client, Collection, Events, GatewayIntentBits } from "discord.js";
 import config from "./config.js";
 import fsc from "fs";

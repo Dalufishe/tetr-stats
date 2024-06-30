@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./stat.css" /> -->
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 50em;
+        height: 168px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #a1dba6;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .container {
+        width: 50em;
+        height: 168px;
+        background-color: #243e25;
+        position: relative;
+        background-color: #243e25;
+        border-top: 3px solid #45794f;
+        border-left: 3px solid #3d6242;
+        border-bottom: 3px solid #162419;
+        border-right: 3px solid #1d3220;
+        box-shadow: 0 0 48px #0002;
+      }
+
+      .avatar {
+        position: absolute;
+        left: 1em;
+        top: 0.1em;
+        height: 4.5em;
+        box-shadow: 0 2px 4px #0008;
+      }
+
+      .titlebox {
+        padding-left: 7.2em;
+        padding-top: 0.4em;
+        margin: 0;
+      }
+
+      .titlebox > .player-name {
+        font-size: 40px;
+        font-weight: 700;
+      }
+
+      .titlebox > .subtitle {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .statsbox {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        padding: 16px 16px;
+      }
+
+      .statsbox > .stats-sub-box {
+        flex: 2;
+        background-color: #0003;
+        padding: 0.25em;
+        text-align: center;
+        border-radius: 4px;
+      }
+
+      .statsbox > .stats-sub-box > h6 {
+        font-size: 16px;
+      }
+
+      .statsbox > .stats-sub-box > .stats-sub-sub-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .statsbox > .stats-sub-box > .stats-sub-sub-box > img {
+        width: 35px;
+      }
+
+      .statsbox > .stats-sub-box > .stats-sub-sub-box > p {
+        font-size: 28px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        class="avatar"
+        src="https://tetr.io/user-content/avatars/5ea1d251dbcf151ddd55f422.jpg?rv=1603435167994"
+        alt=""
+      />
+      <div class="titlebox">
+        <div class="title player-name">OUO</div>
+        <div class="subtitle">JOINED 4 YEARS AGO ▪️ 125</div>
+      </div>
+      <!-- <div class="game-played"></div> -->
+      <div class="statsbox">
+        <div class="stats-league stats-sub-box">
+          <h6>TETR LEAGUE</h6>
+          <div class="stats-sub-sub-box">
+            <img class="player-rank-img" src="https://tetr.io/res/league-ranks/u.png" alt="" />
+            <p class="stats-league-tr player-rank">24382</p>
+          </div>
+        </div>
+        <div class="stats-pps stats-sub-box">
+          <h6>PPS</h6>
+          <div class="stats-sub-sub-box">
+            <p class="stats-pps player-pps">2.08</p>
+          </div>
+        </div>
+        <div class="stats-apm stats-sub-box">
+          <h6>APM</h6>
+          <div class="stats-sub-sub-box">
+            <p class="stats-apm player-apm">2.08</p>
+          </div>
+        </div>
+        <div class="stats-vs stats-sub-box">
+          <h6>VS</h6>
+          <div class="stats-sub-sub-box">
+            <p class="stats-vs player-vs">2.08</p>
+          </div>
+        </div>
+
+        <!-- <div class="stats-40l"></div>
+        <div class="stats-blitz"></div> -->
+      </div>
+    </div>
+  </body>
+</html>
