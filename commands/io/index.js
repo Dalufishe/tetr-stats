@@ -22,56 +22,64 @@ export const action = async (ctx) => {
       `https://ch.tetr.io/api/users/${playerName.toLowerCase()}`
     );
     const data = await res.json();
-    const userData = data?.data?.user;
 
-    const playerId = userData?._id;
-    const rank = userData?.league?.rank;
-    const rating = userData?.league?.rating;
-    const pps = userData?.league?.pps;
-    const apm = userData?.league?.apm;
-    const vs = userData?.league?.vs;
+    if (data.success) {
+      const userData = data?.data?.user;
 
-    // generate image
-    const template = await fs.readFile(
-      path.join(__dirname(import.meta), "template", "stat.html"),
-      {
-        encoding: "utf-8",
-      }
-    );
-    const $ = cheerio.load(template);
+      const playerId = userData?._id;
+      const rank = userData?.league?.rank;
+      const rating = userData?.league?.rating;
+      const pps = userData?.league?.pps;
+      const apm = userData?.league?.apm;
+      const vs = userData?.league?.vs;
 
-    $(".avatar").replaceWith(
-      `<img class="avatar" src=https://tetr.io/user-content/avatars/${playerId}.jpg?rev=></img>`
-    );
-    $(".player-rank-img").replaceWith(
-      `<img class="player-rank-img" src=https://tetr.io/res/league-ranks/${rank}.png></img>`
-    );
-    $(".player-name").replaceWith(
-      `<div class="player-name">${playerName.toUpperCase()}</div>`
-    );
-    $(".player-rank").replaceWith(
-      `<p class="player-rank">${rating.toFixed(0).toString().toUpperCase()}</p>`
-    );
-    $(".player-apm").replaceWith(`<p class="player-apm">${apm}</p>`);
-    $(".player-pps").replaceWith(`<p class="player-pps">${pps}</p>`);
-    $(".player-vs").replaceWith(`<p class="player-vs">${vs}</p>`);
+      // generate image
+      const template = await fs.readFile(
+        path.join(__dirname(import.meta), "template", "stat.html"),
+        {
+          encoding: "utf-8",
+        }
+      );
+      const $ = cheerio.load(template);
 
-    await ctx.deferReply({ ephemeral: true });
+      $(".avatar").replaceWith(
+        `<img class="avatar" src=https://tetr.io/user-content/avatars/${playerId}.jpg?rev=></img>`
+      );
+      $(".player-rank-img").replaceWith(
+        `<img class="player-rank-img" src=https://tetr.io/res/league-ranks/${rank}.png></img>`
+      );
+      $(".player-name").replaceWith(
+        `<div class="player-name">${playerName.toUpperCase()}</div>`
+      );
+      $(".player-rank").replaceWith(
+        `<p class="player-rank">${rating
+          .toFixed(0)
+          .toString()
+          .toUpperCase()}</p>`
+      );
+      $(".player-apm").replaceWith(`<p class="player-apm">${apm}</p>`);
+      $(".player-pps").replaceWith(`<p class="player-pps">${pps}</p>`);
+      $(".player-vs").replaceWith(`<p class="player-vs">${vs}</p>`);
 
-    const imagePath = path.join(
-      __dirname(import.meta),
-      "output",
-      `${playerId}.png`
-    );
+      await ctx.deferReply({ ephemeral: true });
 
-    const imageBuffer = await nodeHtmlToImage({
-      html: $.html(),
-    });
+      const imagePath = path.join(
+        __dirname(import.meta),
+        "output",
+        `${playerId}.png`
+      );
 
-    await fs.writeFile(imagePath, imageBuffer);
+      const imageBuffer = await nodeHtmlToImage({
+        html: $.html(),
+      });
 
-    await ctx.editReply({
-      files: [imageBuffer],
-    });
+      await fs.writeFile(imagePath, imageBuffer);
+
+      await ctx.editReply({
+        files: [imageBuffer],
+      });
+    } else {
+      await ctx.editReply("No Player at TETR.IO");
+    }
   }
 };
